@@ -1,0 +1,18 @@
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.marker-map{
+    display: block;
+    height: 30em;
+    width: 30em;
+    margin: 3em;
+    padding: 0;
+}

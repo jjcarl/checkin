@@ -1,0 +1,10 @@
+*.pyc
+migrations/
+*.DS_Store
+local_settings.py
+ogs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.idea
