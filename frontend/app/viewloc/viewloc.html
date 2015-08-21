@@ -1,12 +1,24 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-1">
-            <h2>This is where you will view the locations</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-offset-1">
-            <locmap class="marker-map" points="points" title="title">
+        <div class="col-md-offset-1 cold-md-10">
+            <div class="row">
+                <div class="col-md-offset-1">
+                    <h2>This is where you will view the locations</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-1">
+                    <locmap class="marker-map" points="points" title="title">
+                </div>
+            </div>
+            <div class="row" ng-repeat="location in locations">
+                <div class="col-md-6">
+                    <a href="#/viewloc/{{location.id}}"><p><b>{{location.title}}</b></p></a>
+                </div>
+                <div class="col-md-6">
+                    <a href="#/viewloc/{{location.id}}"><p>{{location.description}}</p></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
