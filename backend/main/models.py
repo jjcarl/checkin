@@ -58,7 +58,8 @@ class Todo(models.Model):
     completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(null=True, blank=True)
-    location = models.ForeignKey('Location', null=True, blank=True)
+    location = models.ForeignKey(
+        'Location', null=True, blank=True related_name='todo_lists')
     user = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):

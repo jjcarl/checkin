@@ -13,10 +13,10 @@
             </div>
             <div class="row" ng-repeat="location in locations">
                 <div class="col-md-6">
-                    <a href="#/viewloc/{{location.id}}"><p><b>{{location.title}}</b></p></a>
+                    <p><b><a ng-href="#/viewloc/{{location.id}}/">{{location.title}}</a></b></p>
                 </div>
                 <div class="col-md-6">
-                    <a href="#/viewloc/{{location.id}}"><p>{{location.description}}</p></a>
+                    <p><a ng-href="#/viewloc/{{location.id}}/">{{location.description}}</a></p>
                 </div>
             </div>
         </div>
