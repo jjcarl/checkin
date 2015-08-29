@@ -8,13 +8,33 @@ angular.module('checkin.locDetail', ['ngRoute', 'ngResource'])
         controller: 'LocationDetailController'
     })
 }])
-.controller('LocationDetailController', ['$scope', '$routeParams', 'Location', function($scope, $routeParams, Location){
+.controller('LocationDetailController', ['$scope', '$routeParams', 'Location', '$http', '$location', function($scope, $routeParams, Location, $http, $location){
     Location.get({locationId: $routeParams.locationId}, function(response){
         $scope.location = response
         $scope.title = $scope.location.title
         $scope.marker = {'lat': $scope.location.lat, 'lng': $scope.location.lng}
-        $scope.todos = $scope.location.todos
+        $scope.lists = $scope.location.todos
+
+        
     })
+    var todo = $scope.todo
+    $scope.submit = function(){
+        $scope.todo.user = 1 // TODO --- Assign this to the authenticated user
+        $scope.todo.location = $scope.location.id
+        $http.post(backendUrl + '/todo/', $scope.todo)
+        .then(function(response){
+            $scope.success = response.status
+            $scope.posted = "The item has been saved to your list"
+            $scope.lists.push(response.data)
+            $scope.todo = null
+        }),
+         function(response){
+            $scope.errors = response.status;
+         }
+    }
+    $scope.reset = function(){
+        $scope.todo = null
+    }
 }])
 .directive('locdetail', function(){
     return {

@@ -1,29 +1,50 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-2 col-md-8">
-            <h1>{{location.title}}</h1>
+        <div class="col-md-offset-1 col-md-10">
+            <h1><center>{{location.title}}</center></h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-offset-2 col-md-8">
-            <h3>{{location.description}}</h3>
+        <div class="col-md-offset-1 col-md-10">
+            <h2><center>{{location.description}}</center></h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-offset-2 col-md-8">
+        <div class="col-md-offset-1 col-md-7">
             <locdetail class="marker-map" marker="marker" title="title">
         </div>
-    </div>
-    <div class="rox">
-        <div class="col-md-offset-2 col-md-8">
-            <h4>Todo lists</h4>
+        <div class="col-md-4">
+            <h3>Add an Item to this to-do list</h3>
+            <form method="post" class="form-group">
+                <div class="form-group">
+                    <label>To-do Item Title</label>
+                    <input type="text" ng-model="todo.title" class="form-control" placeholder="eg. Check on the availability of...., etc." required>
+                </div>
+                <div class="form-group">
+                    <label>To-do Item Description (optional)</label>
+                    <input type="text" ng-model="todo.description" class="form-control" placeholder="eg. Make sure to also ask about...., etc.">
+                </div>
+                <div class="form-group">
+                    <label>To-do Item Due Date</label>
+                    <input type="datetime-local" ng-model="todo.due_date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" ng-click="submit()">Save</button>
+                    <button class="btn btn-default" ng-click="reset()">Cancel</button>
+                </div>
+            </form>
+            <p>{{posted}}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-offset-2 col-md-8" ng-repeat="todo in todos">
-            <p>{{todo.title}}</p>
-            <p>Due on: {{todo.due_date}}</p>
-            <p ng-if="todo.completed"><b>Completed</b></p>
+        <div class="col-sm-offset-3 col-sm-6">
+            <h4 ng-if="lists">To-do lists</h4>
+        </div>
+        <div class="col-sm-offset-3 col-sm-6" ng-repeat="list in lists track by $index">
+            <p>{{list.title}}</p>
+            <p ng-if="list.description">{{list.description}}</p>
+            <p>Due on: {{list.due_date}}</p>
+            <p ng-if="list.completed"><b>Completed</b></p>
             <hr>
         </div>
     </div>
