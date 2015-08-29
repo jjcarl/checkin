@@ -59,7 +59,7 @@ class Todo(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(null=True, blank=True)
     location = models.ForeignKey(
-        'Location', null=True, blank=True related_name='todo_lists')
+        'Location', null=True, blank=True, related_name='todos')
     user = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):

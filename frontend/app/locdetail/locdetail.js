@@ -12,7 +12,8 @@ angular.module('checkin.locDetail', ['ngRoute', 'ngResource'])
     Location.get({locationId: $routeParams.locationId}, function(response){
         $scope.location = response
         $scope.title = $scope.location.title
-    	$scope.marker = {'lat': $scope.location.lat, 'lng': $scope.location.lng}
+        $scope.marker = {'lat': $scope.location.lat, 'lng': $scope.location.lng}
+        $scope.todos = $scope.location.todos
     })
 }])
 .directive('locdetail', function(){

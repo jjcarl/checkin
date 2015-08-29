@@ -16,3 +16,11 @@
     margin: 3em;
     padding: 0;
 }
+
+.container {
+    -webkit-box-shadow: 0px 0px 22px 3px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 22px 3px rgba(0,0,0,0.16);
+    box-shadow: 0px 0px 22px 3px rgba(0,0,0,0.16);
+    border-radius: 3em;
+    background-color: #bab9b8;
+}

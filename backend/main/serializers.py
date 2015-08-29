@@ -10,13 +10,22 @@ class FamilySerializer(serializers.ModelSerializer):
         fields = ('name', 'locations', 'users',)
 
 
+class TodoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Todo
+        fields = (
+            'item', 'completed', 'created', 'due_date', 'location', 'user',)
+
+
 class LocationSerializer(serializers.ModelSerializer):
+    todos = TodoSerializer(many=True)
 
     class Meta:
         model = Location
         fields = (
             'title', 'description', 'lat', 'lng',
-            'radius', 'family', 'user', 'id',)
+            'radius', 'family', 'user', 'id', 'todos')
         read_only_fields = ('id',)
 
 
@@ -72,11 +81,3 @@ class CheckinSerializer(serializers.ModelSerializer):
         model = Checkin
         fields = (
             'start_time', 'end_time', 'user', 'location',)
-
-
-class TodoSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Todo
-        fields = (
-            'item', 'completed', 'created', 'due_date', 'location', 'user',)

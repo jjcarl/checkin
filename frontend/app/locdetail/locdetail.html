@@ -14,4 +14,17 @@
             <locdetail class="marker-map" marker="marker" title="title">
         </div>
     </div>
+    <div class="rox">
+        <div class="col-md-offset-2 col-md-8">
+            <h4>Todo lists</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8" ng-repeat="todo in todos">
+            <p>{{todo.item}}</p>
+            <p>Due on: {{todo.due_date}}</p>
+            <p ng-if="todo.completed"><b>Completed</b></p>
+            <hr>
+        </div>
+    </div>
 </div>
