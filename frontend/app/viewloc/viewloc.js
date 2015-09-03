@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('checkin.viewLocation', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider){
