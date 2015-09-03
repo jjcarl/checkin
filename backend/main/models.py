@@ -54,13 +54,14 @@ class Checkin(models.Model):
 
 
 class Todo(models.Model):
-    item = models.TextField()
+    title = models.TextField()
+    description = models.TextField(null=True, blank=True)
     completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(null=True, blank=True)
     location = models.ForeignKey(
         'Location', null=True, blank=True, related_name='todos')
-    user = models.ForeignKey(User, null=True, blank=True)
+    user = models.ForeignKey(User, null=True, blank=True, related_name='todos')
 
     def __unicode__(self):
         return self.item
