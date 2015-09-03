@@ -38,13 +38,15 @@
     </div>
     <div class="row">
         <div class="col-sm-offset-3 col-sm-6">
-            <h4 ng-if="lists">To-do lists</h4>
+            <h4>To-do lists</h4>
         </div>
-        <div class="col-sm-offset-3 col-sm-6" ng-repeat="list in lists track by $index">
+        <div class="col-sm-offset-3 col-sm-6" ng-repeat="list in lists track by $index" data-id="{{list.id}}">
             <p>{{list.title}}</p>
             <p ng-if="list.description">{{list.description}}</p>
-            <p>Due on: {{list.due_date}}</p>
-            <p ng-if="list.completed"><b>Completed</b></p>
+            <p>Due on: {{list.due_date}} </p>
+            <!-- might move this into a different view
+            <p><b>Completed: </b><span class="completed-checker"><input type="checkbox" ng-model="completed" class="completed-checkbox" ng-change="change()" ></span></p> -->
+            <p ng-if="list.completed"><b>This item was completed</b></p>
             <hr>
         </div>
     </div>
