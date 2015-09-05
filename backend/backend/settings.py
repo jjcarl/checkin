@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'corsheaders',
     'main',
+    'oauth2_provider',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -103,12 +104,23 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGIN_URL = 'login'
+
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+}
+
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 100,
+    # 'PAGE_SIZE': 100,
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        ),
+    #     'rest_framework.authentication.TokenAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 
 }
 
@@ -117,3 +129,4 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
         '127.0.0.1:8001',
 )
+

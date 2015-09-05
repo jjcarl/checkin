@@ -4,6 +4,8 @@ from main.serializers import FamilySerializer, LocationSerializer
 from main.serializers import UserSerializer, CheckinSerializer, TodoSerializer
 from main.models import Info, Family, Location, Checkin, Todo
 from django.contrib.auth.models import User
+from django.views.generic import View
+import user_auth
 
 
 class UserViewSet(viewsets.ModelViewSet):
