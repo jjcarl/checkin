@@ -21,7 +21,7 @@ class TodoSerializer(serializers.ModelSerializer):
 
 
 class LocationSerializer(serializers.ModelSerializer):
-    todos = TodoSerializer(many=True)
+    todos = TodoSerializer(many=True, required=False)
 
     class Meta:
         model = Location
@@ -40,7 +40,7 @@ class InfoSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    info = InfoSerializer()
+    info = InfoSerializer(required=False)
 
     class Meta:
         model = User
@@ -48,15 +48,22 @@ class UserSerializer(serializers.ModelSerializer):
             'id', 'username', 'password', 'email', 'first_name',
             'last_name', 'info', 'locations',)
         write_only_fields = ('password',)
-        read_only_fields = ('id',)
+        read_only_fields = ('id', 'locations')
 
     def create(self, validated_data):
-        info_data = validated_data.pop('info')
-        user = User.objects.create(**validated_data)
-        Info.objects.create(user=user, **info_data)
+        # info_data = validated_data.pop('info')
+        user = User.objects.create(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name'])
+        # Info.objects.create(
+        #     user=user, phone_number=info_data['phone_number'],
+        #     profile_pic=info_data['profile_pic'],
+        #     family=info_data['family'])
         return user
 
-    def update(self, validated_data):
+    def update(self, instance, validated_data):
         info_data = validated_data.pop('info')
         info = instance.info
 

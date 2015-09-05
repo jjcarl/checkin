@@ -3,12 +3,14 @@
 angular.module('checkin', [
   'ngRoute',
   'ngResource',
+  // 'ngCookies',
   'checkin.home',
   'checkin.map',
   'checkin.version',
   'checkin.newLocationDirective',
   'checkin.viewLocation',
-  'checkin.locDetail'
+  'checkin.locDetail',
+  'checkin.userAuth'
 ]).config(['$resourceProvider', function($resourceProvider) {
   $resourceProvider.defaults.stripTrailingSlashes = false;
 }])
@@ -16,4 +18,38 @@ angular.module('checkin', [
   $routeProvider.otherwise({redirectTo: '/home'});
 }])
 
-var backendUrl = 'http://127.0.0.1:8000'
+.controller('AuthTokenController', ['$scope', '$location', '$http', 'User', '$window', '$routeParams', function($scope, $location, $http, User, $window, $routeParams){
+  var token = sessionStorage.getItem(User.token_name);
+
+  if(token){
+    $http.defaults.headers.common.Authorization = ' Token ' + token;
+    User.getInfo().then(function(){
+      $location.path('/home');
+      $scope.user = User;
+    });
+  }
+  
+  $scope.logout = function(){
+    User.logout();
+    $scope.user = null;
+    $window.location.reload();
+    $location.path('/login');
+  };
+
+  $scope.on(User.update_broadcast, function(){
+    $scope.user = User.info;
+  })
+
+  $scope.$on('$routeChangeStart', function(event, next){
+    if(next.$$route != undefined){
+      var nextRoute = next.$$route.originalPath;
+      if (User.info.id === undefined && (nextRoute != '/register' && nextRoute != '/login')){
+        $location.path('/login')
+      }
+    }
+  });
+
+}]);
+
+var backendUrl = 'http://127.0.0.1:8000';
+// var backendUrl = 'http://api.jc2dev.com'

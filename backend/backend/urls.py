@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework.authtoken import views
 from main.views import UserViewSet, LocationViewSet, FamilyViewSet
-from main.views import CheckinViewSet, TodoViewSet
+from main.views import CheckinViewSet, TodoViewSet, GetUserInfo, UserRegistration
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -30,6 +30,10 @@ router.register(r'todo', TodoViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api-token-auth/', views.obtain_auth_token),
     url(r'^', include(router.urls)),
+    url(r'^api-token-auth/', views.obtain_auth_token),
+    url(r'^api-auth/', include(
+        'rest_framework.urls', namespace='rest_framework')),
+    url(r'^get-user-info/', GetUserInfo.as_view()),
+    url(r'^register-user/', UserRegistration.as_view()),
 ]

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <h1><center>Login</center></h1>
+        <div class="col-md-offset-3 col-md-6">
+            
+
+            <form class="form-group" name="login-form" role="form" ng-submit="login()">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username" ng-model="credentials.username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="credentials.password">
+                </div>
+                <div class="form-group">
+                    <button class="btn">Login</button>
+                </div>
+            </form>
+            <div class="row" ng-repeat="alert in alerts">
+                <div class="alert alert-danger" role="alert">
+                    <button class="close" ng-click="closeAlert($index)">Close</button>
+                    {{alert.msg}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
