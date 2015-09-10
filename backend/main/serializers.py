@@ -21,7 +21,7 @@ class TodoSerializer(serializers.ModelSerializer):
 
 
 class LocationSerializer(serializers.ModelSerializer):
-    todos = TodoSerializer(many=True)
+    todos = TodoSerializer(many=True, required=False)
 
     class Meta:
         model = Location
@@ -40,7 +40,7 @@ class InfoSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    info = InfoSerializer()
+    info = InfoSerializer(required=False)
 
     class Meta:
         model = User
