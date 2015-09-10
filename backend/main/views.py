@@ -43,7 +43,6 @@ class TodoViewSet(viewsets.ModelViewSet):
 
 class UserRegistration(generics.CreateAPIView):
     serializer_class = UserSerializer
-    permission_classes = (permissions.IsAuthenticated,)
 
 
 class GetUserInfo(generics.RetrieveAPIView):

@@ -18,17 +18,19 @@ angular.module('checkin', [
   $routeProvider.otherwise({redirectTo: '/home'});
 }])
 
-.controller('AuthTokenController', ['$scope', '$location', '$http', 'User', '$window', '$routeParams', function($scope, $location, $http, User, $window, $routeParams){
-  var token = sessionStorage.getItem(User.token_name);
+.controller('AuthController', ['$scope', '$location', '$http', 'User', '$window', '$routeParams', function($scope, $location, $http, User, $window, $routeParams){
+  if (sessionStorage.getItem(User.token_name)){
+    var token = sessionStorage.getItem(User.token_name);
 
-  if(token){
-    $http.defaults.headers.common.Authorization = ' Token ' + token;
-    User.getInfo().then(function(){
-      $location.path('/home');
-      $scope.user = User;
-    });
+    if(token){
+      $http.defaults.headers.common.Authorization = ' Token ' + token;
+      User.getInfo().then(function(){
+        $scope.user = User.info;
+        $location.path('/home');
+        
+      });
+    }
   }
-  
   $scope.logout = function(){
     User.logout();
     $scope.user = null;
@@ -36,7 +38,7 @@ angular.module('checkin', [
     $location.path('/login');
   };
 
-  $scope.on(User.update_broadcast, function(){
+  $scope.$on(User.update_broadcast, function(){
     $scope.user = User.info;
   })
 
