@@ -13,11 +13,12 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 
 class Info(models.Model):
-    user = models.OneToOneField(User)
-    phone_number = models.IntegerField()
+    user = models.OneToOneField(User, null=True, blank=True)
+    phone_number = models.IntegerField(null=True, blank=True)
     profile_pic = models.ImageField(
         upload_to='profile_pic', null=True, blank=True)
-    family = models.ForeignKey('Family', related_name='users')
+    family = models.ForeignKey(
+        'Family', related_name='users', null=True, blank=True)
 
     def __unicode__(self):
         return self.user
