@@ -25,7 +25,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '.api.jc2dev.com',
-    '.api.jc2dev.com.'
+    '.api.jc2dev.com.',
+    'checkin.jc2dev.com',
+    '.checkin.jc2dev.com.'
 ]
 
 
