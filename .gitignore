@@ -10,3 +10,4 @@ tmp
 .idea
 error_log
 access_log
+*.orig

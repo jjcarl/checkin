@@ -1,5 +1,5 @@
 from main.models import Info, Family, Location, Checkin, Todo
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
 
@@ -92,3 +92,8 @@ class CheckinSerializer(serializers.ModelSerializer):
         model = Checkin
         fields = (
             'start_time', 'end_time', 'user', 'location',)
+
+
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group

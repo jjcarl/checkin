@@ -1,9 +1,14 @@
 from rest_framework import viewsets, generics, permissions
 from rest_framework.response import Response
-from main.serializers import FamilySerializer, LocationSerializer
-from main.serializers import UserSerializer, CheckinSerializer, TodoSerializer
+from main.serializers import (
+    FamilySerializer, LocationSerializer, UserSerializer, CheckinSerializer,
+    TodoSerializer, GroupSerializer)
 from main.models import Info, Family, Location, Checkin, Todo
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
+from django.views.generic import View
+import user_auth
+from oauth2_provider.ext.rest_framework import (
+    TokenHasReadWriteScope, TokenHasScope)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -51,6 +56,13 @@ class GetUserInfo(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+class GroupViewSet(viewsets.ModelViewSet):
+    permission_classes = (permissions.IsAuthenticated, )
+    required_scopes = ['groups']
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
 
 # class FamilyLocationViewSet(viewsets.ModelViewSet):
 #     queryset = Location.objects.all()    # TODO filter by auth/user
