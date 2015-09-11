@@ -114,8 +114,8 @@ OAUTH2_PROVIDER = {
 REST_FRAMEWORK = {
     # 'PAGE_SIZE': 100,
     'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework.authentication.TokenAuthentication',
-    #     'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'oauth2_provider.ext.rest_framework.OAuth2Authentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
@@ -127,6 +127,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-        '127.0.0.1:8001',
+    # 'checkin.jc2dev.com',
+    '127.0.0.1:8001',
 )
 

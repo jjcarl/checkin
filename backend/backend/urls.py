@@ -20,11 +20,11 @@ from django.contrib import admin
 from django.contrib.auth.models import User, Group
 from rest_framework.authtoken import views
 from main.views import UserViewSet, LocationViewSet, FamilyViewSet
-from main.views import CheckinViewSet, TodoViewSet
 from rest_framework import routers, permissions, serializers, viewsets
 admin.autodiscover()
 from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
 from django.contrib.auth import views as auth_views
+from main.views import CheckinViewSet, TodoViewSet, GetUserInfo, UserRegistration
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -52,11 +52,11 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'locations', LocationViewSet)
+router.register(r'families', FamilyViewSet)
+router.register(r'checkins', CheckinViewSet)
+router.register(r'todo', TodoViewSet)
 router.register(r'groups', GroupViewSet)
-# router.register(r'locations', LocationViewSet)
-# router.register(r'families', FamilyViewSet)
-# router.register(r'checkins', CheckinViewSet)
-# router.register(r'todo', TodoViewSet)
 
 
 urlpatterns = [
@@ -87,3 +87,8 @@ urlpatterns = [
         {"template_name": "password_reset/password_reset_complete.html"},
         name="password_reset_complete"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^api-auth/', include(
+        'rest_framework.urls', namespace='rest_framework')),
+    url(r'^get-user-info/', GetUserInfo.as_view()),
+    url(r'^register-user/', UserRegistration.as_view()),
+]

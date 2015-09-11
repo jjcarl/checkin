@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <h1>Register for an account</h1>
+            <form class="form-group" name="create-user-form" role="form" ng-submit="register()">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" id="first-name" placeholder="First Name" ng-model="user_info.first_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="last-name" placeholder="Last Name" ng-model="user_info.last_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="example@example.com" ng-model="user_info.email" required>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="myusername" ng-model="user_info.username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="user_info.password" required>
+                </div>
+                <div>
+                    <button class="btn" type="submit">Register</button>
+                </div>
+            </form>
+            <div>
+                <a href="#/login">Login</a>
+            </div>
+            <div class="row" ng-repeat="alert in alerts">
+                <div class="alert alert-danger" role="alert">
+                    <button type="close" ng-click="closeAlert($index)">Close</button>
+                    {{alert.msg}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
