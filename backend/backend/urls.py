@@ -17,38 +17,15 @@ from django.conf import settings
 from django.conf.urls import include, url, patterns
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth.models import User, Group
-from rest_framework.authtoken import views
-from main.views import UserViewSet, LocationViewSet, FamilyViewSet
-from rest_framework import routers, permissions, serializers, viewsets
-admin.autodiscover()
-from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
 from django.contrib.auth import views as auth_views
-from main.views import CheckinViewSet, TodoViewSet, GetUserInfo, UserRegistration
+from django.contrib.auth.models import User, Group
+from main.views import (
+    UserViewSet, LocationViewSet, FamilyViewSet, GetUserInfo,
+    CheckinViewSet, TodoViewSet, UserRegistration, GroupViewSet)
+from rest_framework import routers, permissions, serializers, viewsets
+from rest_framework.authtoken import views
+admin.autodiscover()
 
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-
-
-class GroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Group
-
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated, TokenHasScope]
-    required_scopes = ['groups']
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -60,9 +37,7 @@ router.register(r'groups', GroupViewSet)
 
 
 urlpatterns = [
-    url(r'^api-token-auth/', views.obtain_auth_token),
     url(r'^', include(router.urls)),
-    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^admin/', include(admin.site.urls)),
     # basic auth
     url(r'^login/$', 'main.user_auth.login', name='login'),
@@ -86,9 +61,11 @@ urlpatterns = [
         auth_views.password_reset_complete,
         {"template_name": "password_reset/password_reset_complete.html"},
         name="password_reset_complete"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     url(r'^api-auth/', include(
         'rest_framework.urls', namespace='rest_framework')),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^api-token-auth/', views.obtain_auth_token),
     url(r'^get-user-info/', GetUserInfo.as_view()),
     url(r'^register-user/', UserRegistration.as_view()),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
