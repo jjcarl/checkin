@@ -11,7 +11,7 @@ angular.module('checkin.viewLocation', ['ngRoute'])
 .controller('ViewLocationController', ['$scope', '$http', function($scope, $http){
     $scope.family = 1 // TODO ---- Assign this to an authenticated user's family
     $http.get(backendUrl + '/locations/').then(function(response){
-        $scope.locations = response.data.results
+        $scope.locations = response.data
     }), function(response){
         $scope.error = response.status
     }
