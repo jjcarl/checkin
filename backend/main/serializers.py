@@ -3,13 +3,6 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
 
-class FamilySerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Family
-        fields = ('name', 'locations', 'users',)
-
-
 class TodoSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -45,9 +38,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'id', 'username', 'password', 'email', 'first_name',
+            'id', 'username', 'email', 'first_name',
             'last_name', 'info', 'locations',)
-        write_only_fields = ('password',)
+        # write_only_fields = ('password',)
         read_only_fields = ('id', 'locations')
 
     def create(self, validated_data):
@@ -97,3 +90,13 @@ class CheckinSerializer(serializers.ModelSerializer):
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
+
+
+class FamilySerializer(serializers.ModelSerializer):
+    locations = LocationSerializer(many=True, required=False)
+    users = InfoSerializer(many=True, required=False)
+
+    class Meta:
+        model = Family
+        fields = ('id', 'name', 'users', 'locations')
+        read_only_fields = ('id',)
