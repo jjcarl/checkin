@@ -21,7 +21,8 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User, Group
 from main.views import (
     UserViewSet, LocationViewSet, FamilyViewSet, GetUserInfo,
-    CheckinViewSet, TodoViewSet, UserRegistration, GroupViewSet)
+    CheckinViewSet, TodoViewSet, UserRegistration, GroupViewSet,
+    UserInfoViewSet)
 from rest_framework import routers, permissions, serializers, viewsets
 from rest_framework.authtoken import views
 admin.autodiscover()
@@ -29,6 +30,7 @@ admin.autodiscover()
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'info', UserInfoViewSet)
 router.register(r'locations', LocationViewSet)
 router.register(r'families', FamilyViewSet)
 router.register(r'checkins', CheckinViewSet)
@@ -68,4 +70,3 @@ urlpatterns = [
     url(r'^get-user-info/', GetUserInfo.as_view()),
     url(r'^register-user/', UserRegistration.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

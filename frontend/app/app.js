@@ -11,7 +11,8 @@ angular.module('checkin', [
   'checkin.viewLocation',
   'checkin.locDetail',
   'checkin.userAuth',
-  'checkin.viewFamily'
+  'checkin.viewFamily',
+  'checkin.userInfo'
 ]).config(['$resourceProvider', function($resourceProvider) {
   $resourceProvider.defaults.stripTrailingSlashes = false;
 }])

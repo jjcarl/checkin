@@ -96,6 +96,15 @@ class FamilySerializer(serializers.ModelSerializer):
     locations = LocationSerializer(many=True, required=False)
     users = InfoSerializer(many=True, required=False)
 
+    def create(self, validated_data):
+        print validated_data
+        family, created = Family.objects.get_or_create(
+            name=validated_data['name'])
+        for user in validated_data['users']:
+            user_info, created = Info.objects.get_or_create(user=user.id)
+            user_info.family.add(family=family.id)
+        return family
+
     class Meta:
         model = Family
         fields = ('id', 'name', 'users', 'locations')

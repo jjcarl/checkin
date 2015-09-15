@@ -2,7 +2,7 @@ from rest_framework import viewsets, generics, permissions
 from rest_framework.response import Response
 from main.serializers import (
     FamilySerializer, LocationSerializer, UserSerializer, CheckinSerializer,
-    TodoSerializer, GroupSerializer)
+    TodoSerializer, GroupSerializer, InfoSerializer)
 from main.models import Info, Family, Location, Checkin, Todo
 from django.contrib.auth.models import User, Group
 from django.views.generic import View
@@ -14,6 +14,12 @@ from oauth2_provider.ext.rest_framework import (
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+
+class UserInfoViewSet(viewsets.ModelViewSet):
+    queryset = Info.objects.all()
+    serializer_class = InfoSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
 
