@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-10">
+            <div>
+                <h2>User Information Management</h2>
+                <h3>Username: {{user.username}}</h2>
+                <p>First Name: {{user.first_name}}</p>
+                <p>Last Name: {{user.last_name}}</p>
+            </div>
+            <div>
+                <p>Phone Number: {{user.info.phone_number}}</p>
+                <p ng-show="family">Family: {{family.name}}</p>
+                <img ng-src="{{user.info.profile_pic}}" alt="" ng-show="user.info.profile_pic" id="profile-pic">
+                <p ng-hide="family">Please join a family below</p>
+                <br>
+                <div ng-hide="user.info.family">
+                    <h4>Enter your user information: </h4>
+                    <form method="post" class="form-group">
+                        <div ng-hide="family" class="form-group">
+                            <label>Family:</label>
+                            <input type="text" ng-model="newfam.name" placeholder="Enter your family name here">
+                        </div>
+                        <button ng-click="submit()">Join the family</button>
+                    </form>
+                </div>
+                <div ng-hide="user.info.phone_number">
+                    <h4>Enter your phone number: </h4>
+                    <form method="put" class="form-group">
+                        <div ng-hide="user.info.phone_number" class="form-group">
+                            <label>Phone Number:</label>
+                            <input type="number" ng-model="user_info.phone_number" placeholder="Enter your phone number here">
+                        </div>
+                        <button ng-click="info()">Update your phone number</button>
+                    </form>
+                </div>
+                <div ng-hide="user.info.profile_pic">
+                    <form method="put" class="form-group">
+                        <div ng-hide="user.info.profile_pic" class="form-group">
+                            <label>Profile Picture</label>
+                            <input id="pic" name="pic" type="file" accept="image/gif, image/x-png, image/jpeg, image/jpg" onchange="angular.element(this).scope().image_upload()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

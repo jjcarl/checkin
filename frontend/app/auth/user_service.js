@@ -2,9 +2,10 @@
 
 angular.module('checkin.userAuth')
 
-.service('User', ['$http', '$rootScope', function($http, $rootScope){
+.service('User', ['$http', '$rootScope', '$location', '$window', function($http, $rootScope, $location, $window){
     var user = {};
     user.info = {};
+    // user.family = {};
     
 
     user.registration = function(user_info){
@@ -25,13 +26,21 @@ angular.module('checkin.userAuth')
         return $http.get(backendUrl + '/get-user-info/').then(function(data){
             user.info = data.data;
             $rootScope.$broadcast(user.update_broadcast);
+            // return user.getFamily();
         })
     };
     user.logout = function(){
         user.info = {};
         sessionStorage.removeItem(user.token_name);
-        $http.defaults.header.common.Authorization = '';
+        $window.location.reload();
     };
+    // Need to figure out displaying new content in order to use this.
+    // Maybe try appending the new locations to this User.Family value
+    // user.getFamily = function(){
+    //     return $http.get(backendUrl + '/families/' + user.info.info.family + '/').then(function(data){
+    //         user.family = data.data;
+    //     })
+    // }
     user.token_name = 'auth-token';
     user.update_broadcast = 'user-updated';
     return user
