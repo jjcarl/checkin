@@ -32,6 +32,14 @@ class InfoSerializer(serializers.ModelSerializer):
             'user', 'phone_number', 'profile_pic', 'family',)
 
 
+class CheckinSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Checkin
+        fields = (
+            'start_time', 'end_time', 'user', 'location',)
+
+
 class UserSerializer(serializers.ModelSerializer):
     info = InfoSerializer(required=False)
 
@@ -39,7 +47,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             'id', 'username', 'email', 'first_name',
-            'last_name', 'info', 'locations',)
+            'last_name', 'info', 'locations', 'checkins')
         # write_only_fields = ('password',)
         read_only_fields = ('id', 'locations')
 
@@ -79,14 +87,6 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 
-class CheckinSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Checkin
-        fields = (
-            'start_time', 'end_time', 'user', 'location',)
-
-
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
@@ -97,12 +97,8 @@ class FamilySerializer(serializers.ModelSerializer):
     users = InfoSerializer(many=True, required=False)
 
     def create(self, validated_data):
-        print validated_data
         family, created = Family.objects.get_or_create(
             name=validated_data['name'])
-        for user in validated_data['users']:
-            user_info, created = Info.objects.get_or_create(user=user.id)
-            user_info.family.add(family=family.id)
         return family
 
     class Meta:

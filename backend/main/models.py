@@ -29,7 +29,7 @@ class Info(models.Model):
 
 
 class Family(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
 
     def __unicode__(self):
         return self.name
@@ -59,11 +59,11 @@ class Location(models.Model):
 class Checkin(models.Model):
     start_time = models.DateTimeField(null=True, blank=True)
     end_time = models.DateTimeField(null=True, blank=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name='checkins')
     location = models.ForeignKey('Location', related_name='checkins')
 
     def __unicode__(self):
-        return self.user
+        return "%s" % self.user
 
     class Meta:
         verbose_name = 'Check In'

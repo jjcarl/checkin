@@ -8,7 +8,7 @@ angular.module('checkin.userInfo', ['ngRoute'])
         controller: 'UserInfoController'
     });
 }])
-.controller('UserInfoController', ['$scope', 'User', '$http', '$location', function($scope, User, $http, $location){
+.controller('UserInfoController', ['$scope', 'User', '$http', '$location', '$window', function($scope, User, $http, $location, $window){
     $scope.user = User.info
     $http.get(backendUrl + '/families/').then(function(response){
         $scope.families = response.data
@@ -27,15 +27,18 @@ angular.module('checkin.userInfo', ['ngRoute'])
     $scope.submit = function(){
         $scope.newfam.users = [$scope.user]
         $scope.newfam.locations = []
+        console.log($scope.newfam)
         $http.post(backendUrl + '/families/', $scope.newfam).then(function(response){
-            $scope.new_info.family = response.data
-            $location.path('/user-info')
-            // $scope.new_info.user = $scope.user.id
-            // $http.post(backendUrl + '/info/', $scope.new_info).then(function(response){
-            //     $scope.success = response.data
-            // }), function(response){
-            //     $scope.errors = response.status
-            // }
+            $scope.success = response.status
+            $scope.new_info.family = response.data.id
+            $scope.new_info.user = $scope.user.id
+            $http.post(backendUrl + '/info/', $scope.new_info).then(function(response){
+                $scope.success = response.data
+                $window.location.reload();
+                $location.path('/user-info')
+            }), function(response){
+                $scope.errors = response.status
+            }
         }), function(response){
             $scope.errors = response.status
         }
