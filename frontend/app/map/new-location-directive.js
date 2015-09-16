@@ -24,7 +24,7 @@ angular.module('checkin.newLocationDirective', [])
 
                 google.maps.event.addListener(markerMap, 'click', function(event){
                     addMarker(event.latLng, markerMap)
-                    scope.marker.push({lat: event.latLng.G, lng: event.latLng.K})
+                    scope.marker.push({lat: event.latLng.H, lng: event.latLng.L})
                     scope.$apply()
                 });
 
