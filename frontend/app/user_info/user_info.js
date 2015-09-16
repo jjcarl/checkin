@@ -54,6 +54,14 @@ angular.module('checkin.userInfo', ['ngRoute'])
     }
     $scope.image_upload = function(){
         $scope.user_info.user = $scope.user.id
+        var file = document.getElementById('pic').files[0],
+            reader = new FileReader();
+        reader.onload = function(e){
+            $scope.user_info.profile_pic = 'data:image/png;base64,' + btoa(e.target.result);
+            $scope.$apply();
+        }
+        reader.readAsBinaryString(file);
+
         $http.put(backendUrl + '/info/' + $scope.user.id + '/', $scope.user_info).then(function(response){
             $scope.success = response.data
             $window.location.reload();

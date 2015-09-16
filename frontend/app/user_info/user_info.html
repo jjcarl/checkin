@@ -9,8 +9,8 @@
             </div>
             <div>
                 <p>Phone Number: {{user.info.phone_number}}</p>
-                <img ng-src="{{user.info.profile_pic}}" alt="" ng-show="user.info.profile_pic">
                 <p ng-show="family">Family: {{family.name}}</p>
+                <img ng-src="{{user.info.profile_pic}}" alt="" ng-show="user.info.profile_pic" id="profile-pic">
                 <p ng-hide="family">Please join a family below</p>
                 <br>
                 <div ng-hide="user.info.family">
@@ -37,9 +37,8 @@
                     <form method="put" class="form-group">
                         <div ng-hide="user.info.profile_pic" class="form-group">
                             <label>Profile Picture</label>
-                            <input type="file" ng-model="user_info.profile_pic">
+                            <input id="pic" name="pic" type="file" accept="image/gif, image/x-png, image/jpeg, image/jpg" onchange="angular.element(this).scope().image_upload()">
                         </div>
-                        <button ng-click="image_upload()">Upload a picture</button>
                     </form>
                 </div>
             </div>
