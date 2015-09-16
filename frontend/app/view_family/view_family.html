@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-10">
+            <div>
+                <h2>{{family.name}}</h2>
+            </div>
+            <div>
+                <p>Current family members:</p>
+                <div class="col-sm-offset-1">
+                    <div ng-repeat="member in members">
+                        <p>Username: {{member.username}}, First Name: {{member.first_name}} <br>
+                        <p class="col-sm-offset-1" ng-show="member.checkins">{{member.username}} has {{member.checkins.length}} Check-ins.</p>
+                    </div>
+                </div>
+                <p>This family currently has {{family.locations.length}} locations:</p>
+                <div class="col-sm-offset-1">
+                    <p ng-repeat="location in family.locations">{{location.title}}: {{location.description}}</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -8,10 +8,14 @@ angular.module('checkin.viewLocation', ['ngRoute'])
         controller: 'ViewLocationController'
     });
 }])
-.controller('ViewLocationController', ['$scope', '$http', function($scope, $http){
-    $scope.family = 1 // TODO ---- Assign this to an authenticated user's family
-    $http.get(backendUrl + '/locations/').then(function(response){
-        $scope.locations = response.data
+.controller('ViewLocationController', ['$scope', '$http', 'User', function($scope, $http, User){
+    $scope.user = User.info
+    // If I can figure out how to automatically add newly created locations, I'll use this.
+    // $scope.locations = User.family.locations
+    $scope.family = $scope.user.info.family
+    $http.get(backendUrl + '/families/' + $scope.family + '/').then(function(response){
+        $scope.locations = response.data.locations
+        console.log($scope.locaitons)
     }), function(response){
         $scope.error = response.status
     }

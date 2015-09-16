@@ -10,7 +10,9 @@ angular.module('checkin', [
   'checkin.newLocationDirective',
   'checkin.viewLocation',
   'checkin.locDetail',
-  'checkin.userAuth'
+  'checkin.userAuth',
+  'checkin.viewFamily',
+  'checkin.userInfo'
 ]).config(['$resourceProvider', function($resourceProvider) {
   $resourceProvider.defaults.stripTrailingSlashes = false;
 }])
@@ -28,7 +30,10 @@ angular.module('checkin', [
         $scope.user = User.info;
         $location.path('/home');
         
-      });
+      }, function(response){
+        sessionStorage.removeItem(User.token_name);
+        $window.location.reload();
+      })
     }
   }
   $scope.logout = function(){

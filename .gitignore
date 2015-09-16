@@ -11,3 +11,4 @@ tmp
 error_log
 access_log
 *.orig
+media

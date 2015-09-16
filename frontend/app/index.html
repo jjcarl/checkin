@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
 </head>
-<body ng-controller="AuthController">
+<body ng-controller="AuthController" ng-cloak>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Collapsable nav bar -->
@@ -32,10 +33,12 @@
 
       <!-- Collect the nav links for toggling -->
       <div class="collapse navbar-collapse" id="collapse-navbar">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" ng-show="user">
           <!--<li class="active"><a href="#">Placeholder Link <span class="sr-only">(current)</span></a></li>-->
-          <li><a href="#/map">Create a location</a></li>
-          <li><a href="#/viewloc">View all locations</a></li>
+          <li  ng-show="user.info.family"><a href="#/map">Create a location</a></li>
+          <li  ng-show="user.info.family"><a href="#/viewloc">View all locations</a></li>
+          <li  ng-show="user.info.family"><a href="#/family">View your family</a></li>
+          <li ng-hide="user.info.family"><a href="#/user-info">Update your info</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-hide="user"><a href="#/login">Login</a></li>
@@ -43,10 +46,12 @@
           <li class="dropdown" ng-show="user">
             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{user.username}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="#/user-info">My User Info</a></li>
+              <li role="separator" class="divider"></li>
               <li><a href ng-click="logout()">Logout</a></li>
               <!--<li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
+              
               <li><a href="#">Separated link</a></li>-->
             </ul>
           </li>
@@ -67,7 +72,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="components/version/version.js"></script>
@@ -84,6 +88,8 @@
   <script src="map/new-location-directive.js"></script>
   <script src="viewloc/viewloc.js"></script>
   <script src="locdetail/locdetail.js"></script>
+  <script src="view_family/view_family.js"></script>
+  <script src="user_info/user_info.js"></script>
   
 </body>
 </html>

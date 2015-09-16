@@ -13,22 +13,30 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 
 class Info(models.Model):
-    user = models.OneToOneField(User, null=True, blank=True)
-    phone_number = models.IntegerField(null=True, blank=True)
+    user = models.OneToOneField(User, primary_key=True)
+    phone_number = models.CharField(max_length=30, null=True, blank=True)
     profile_pic = models.ImageField(
         upload_to='profile_pic', null=True, blank=True)
     family = models.ForeignKey(
         'Family', related_name='users', null=True, blank=True)
 
     def __unicode__(self):
-        return self.user
+        return '%s' % self.user
+
+    class Meta:
+        verbose_name = 'User Info'
+        verbose_name_plural = 'User Info List'
 
 
 class Family(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Family'
+        verbose_name_plural = 'Families'
 
 
 class Location(models.Model):
@@ -43,15 +51,23 @@ class Location(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Location'
+        verbose_name_plural = 'Locations'
+
 
 class Checkin(models.Model):
     start_time = models.DateTimeField(null=True, blank=True)
     end_time = models.DateTimeField(null=True, blank=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name='checkins')
     location = models.ForeignKey('Location', related_name='checkins')
 
     def __unicode__(self):
-        return self.user
+        return "%s" % self.user
+
+    class Meta:
+        verbose_name = 'Check In'
+        verbose_name_plural = 'Check In List'
 
 
 class Todo(models.Model):
@@ -66,3 +82,7 @@ class Todo(models.Model):
 
     def __unicode__(self):
         return self.item
+
+    class Meta:
+        verbose_name = 'To-do Item'
+        verbose_name_plural = 'To-do Items'

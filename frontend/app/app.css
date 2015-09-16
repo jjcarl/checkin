@@ -24,3 +24,8 @@
     border-radius: 3em;
     background-color: #bab9b8;
 }
+
+#profile-pic {
+  width: 20em;
+  padding-bottom: 1em;
+}
