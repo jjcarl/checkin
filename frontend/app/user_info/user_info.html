@@ -13,22 +13,34 @@
                 <p ng-show="family">Family: {{family.name}}</p>
                 <p ng-hide="family">Please join a family below</p>
                 <br>
-                <div ng-hide="user.info.family && user.info.phone_number">
+                <div ng-hide="user.info.family">
                     <h4>Enter your user information: </h4>
                     <form method="post" class="form-group">
                         <div ng-hide="family" class="form-group">
                             <label>Family:</label>
                             <input type="text" ng-model="newfam.name" placeholder="Enter your family name here">
                         </div>
-                        <div ng-hide="user.info.phone_number" class="form-group">
-                            <label>Phone Number:</label>
-                            <input type="number" ng-model="new_info.phone_number" placeholder="Enter your phone number here">
-                        </div>
                         <button ng-click="submit()">Join the family</button>
                     </form>
-                    <div>
-                        <p>{{success}}</p>
-                    </div>
+                </div>
+                <div ng-hide="user.info.phone_number">
+                    <h4>Enter your phone number: </h4>
+                    <form method="put" class="form-group">
+                        <div ng-hide="user.info.phone_number" class="form-group">
+                            <label>Phone Number:</label>
+                            <input type="number" ng-model="user_info.phone_number" placeholder="Enter your phone number here">
+                        </div>
+                        <button ng-click="info()">Update your phone number</button>
+                    </form>
+                </div>
+                <div ng-hide="user.info.profile_pic">
+                    <form method="put" class="form-group">
+                        <div ng-hide="user.info.profile_pic" class="form-group">
+                            <label>Profile Picture</label>
+                            <input type="file" ng-model="user_info.profile_pic">
+                        </div>
+                        <button ng-click="image_upload()">Upload a picture</button>
+                    </form>
                 </div>
             </div>
         </div>

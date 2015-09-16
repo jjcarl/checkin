@@ -33,11 +33,11 @@
 
       <!-- Collect the nav links for toggling -->
       <div class="collapse navbar-collapse" id="collapse-navbar">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" ng-show="user">
           <!--<li class="active"><a href="#">Placeholder Link <span class="sr-only">(current)</span></a></li>-->
-          <li><a href="#/map">Create a location</a></li>
-          <li><a href="#/viewloc">View all locations</a></li>
-          <li ng-show="user.info.family"><a href="#/family">View your family</a></li>
+          <li  ng-show="user.info.family"><a href="#/map">Create a location</a></li>
+          <li  ng-show="user.info.family"><a href="#/viewloc">View all locations</a></li>
+          <li  ng-show="user.info.family"><a href="#/family">View your family</a></li>
           <li ng-hide="user.info.family"><a href="#/user-info">Update your info</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

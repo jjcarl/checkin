@@ -30,7 +30,10 @@ angular.module('checkin', [
         $scope.user = User.info;
         $location.path('/home');
         
-      });
+      }, function(response){
+        sessionStorage.removeItem(User.token_name);
+        $window.location.reload();
+      })
     }
   }
   $scope.logout = function(){

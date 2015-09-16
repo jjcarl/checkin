@@ -65,8 +65,8 @@ urlpatterns = [
         name="password_reset_complete"),
     url(r'^api-auth/', include(
         'rest_framework.urls', namespace='rest_framework')),
-    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^api-token-auth/', views.obtain_auth_token),
     url(r'^get-user-info/', GetUserInfo.as_view()),
     url(r'^register-user/', UserRegistration.as_view()),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

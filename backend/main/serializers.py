@@ -26,6 +26,25 @@ class LocationSerializer(serializers.ModelSerializer):
 
 class InfoSerializer(serializers.ModelSerializer):
 
+    def create(self, validated_data):
+        info, created = Info.objects.get_or_create(user_id=validated_data['user'])
+        info.phone_number = validated_data.get('phone_number')
+        info.profile_pic = validated_data.get('profile_pic')
+        info.family = validated_data.get('family')
+        info.save()
+
+        return info
+
+    def update(self, instance, validated_data):
+        instance.phone_number = validated_data.get(
+            'phone_number', instance.phone_number)
+        instance.profile_pic = validated_data.get(
+            'profile_pic', instance.profile_pic)
+        instance.family = validated_data.get('family', instance.family)
+        instance.save()
+
+        return instance
+
     class Meta:
         model = Info
         fields = (

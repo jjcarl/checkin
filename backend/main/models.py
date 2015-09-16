@@ -13,7 +13,7 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 
 class Info(models.Model):
-    user = models.OneToOneField(User, null=True, blank=True)
+    user = models.OneToOneField(User, primary_key=True)
     phone_number = models.CharField(max_length=30, null=True, blank=True)
     profile_pic = models.ImageField(
         upload_to='profile_pic', null=True, blank=True)
