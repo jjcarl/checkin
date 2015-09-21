@@ -6,6 +6,9 @@ angular.module('checkin.userAuth')
     var user = {};
     user.info = {};
     // user.family = {};
+    var clientId = '8MKwdnQxInAwOKO7MOc1zJiAqWuLJEqp7RIuVfR9'
+    var clientSecret = 'LqE3ENDTXTAWUQNVbBnDQMHXPKQJqPxrF2m1t7dG3cJiNpevw19WEqdgCUKRgf7hlRu5sckhp8d6cl3uKOY7orkaoFzxSNT5RGhfSXu4GDHGefPRcDsSBQo8hXNmBmFU'
+
     
 
     user.registration = function(user_info){
@@ -32,8 +35,17 @@ angular.module('checkin.userAuth')
     user.logout = function(){
         user.info = {};
         sessionStorage.removeItem(user.token_name);
+        sessionStorage.removeItem('fbtoken');
+        sessionStorage.removeItem('facebook_auth');
         $window.location.reload();
     };
+
+    user.facebookLogin = function(token){
+        sessionStorage.setItem('facebook_auth', token);
+        $http.defaults.headers.common.Authorization = ' Bearer facebook ' + token;
+        return user.getInfo();
+    }
+
     // Need to figure out displaying new content in order to use this.
     // Maybe try appending the new locations to this User.Family value
     // user.getFamily = function(){
@@ -44,4 +56,4 @@ angular.module('checkin.userAuth')
     user.token_name = 'auth-token';
     user.update_broadcast = 'user-updated';
     return user
-}]);
+}])

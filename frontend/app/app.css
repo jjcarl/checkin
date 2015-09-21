@@ -39,3 +39,7 @@ h1, h2, h3 {
 nav {
   position: fixed;
 }
+
+.login-icon {
+  width: 2em;
+}
