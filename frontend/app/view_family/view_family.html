@@ -7,8 +7,8 @@
             <div>
                 <p>Current family members:</p>
                 <div class="col-sm-offset-1">
-                    <div ng-repeat="member in members">
-                        <p>Username: {{member.username}}, First Name: {{member.first_name}} <br>
+                    <div ng-repeat="member in members | orderBy : 'first_name'">
+                        <p>Username: <a href="#/family/{{member.id}}/">{{member.username}}</a>, First Name: {{member.first_name}} <br>
                         <p class="col-sm-offset-1" ng-show="member.checkins">{{member.username}} has {{member.checkins.length}} Check-ins.</p>
                     </div>
                 </div>
