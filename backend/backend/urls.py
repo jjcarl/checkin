@@ -45,6 +45,9 @@ urlpatterns = [
     url(r'^login/$', 'main.user_auth.login', name='login'),
     url(r'^logout/$', 'main.user_auth.logout', name='logout'),
 
+    # Social Oauth
+    url(r'^auth/', include('rest_framework_social_oauth2.urls')),
+
     # password reset flow
     url(r'^password/reset/$',
         auth_views.password_reset,

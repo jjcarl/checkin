@@ -44,4 +44,4 @@ angular.module('checkin.userAuth')
     user.token_name = 'auth-token';
     user.update_broadcast = 'user-updated';
     return user
-}]);
+}])
