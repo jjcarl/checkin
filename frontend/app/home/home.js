@@ -9,6 +9,6 @@ angular.module('checkin.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeController', [function() {
-
+.controller('HomeController', ['$scope', function($scope) {
+    // $scope.video = 'home/blake.mp4'
 }]);
