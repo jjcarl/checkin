@@ -12,7 +12,8 @@ angular.module('checkin', [
   'checkin.locDetail',
   'checkin.userAuth',
   'checkin.viewFamily',
-  'checkin.userInfo'
+  'checkin.userInfo',
+  'checkin.familyDetail'
 ]).config(['$resourceProvider', function($resourceProvider) {
   $resourceProvider.defaults.stripTrailingSlashes = false;
 }])
@@ -50,7 +51,7 @@ angular.module('checkin', [
   $scope.$on('$routeChangeStart', function(event, next){
     if(next.$$route != undefined){
       var nextRoute = next.$$route.originalPath;
-      if (User.info.id === undefined && (nextRoute != '/register' && nextRoute != '/login')){
+      if (User.info.id === undefined && (nextRoute != '/register' && nextRoute != '/login' && nextRoute != '/home')){
         $location.path('/login')
       }
     }

@@ -29,3 +29,13 @@
   width: 20em;
   padding-bottom: 1em;
 }
+
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+
+nav {
+  position: fixed;
+}
