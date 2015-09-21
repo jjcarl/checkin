@@ -1,0 +1,74 @@
+commit 5fc7fdda5db737956b15724a7830a0b55014df98
+Author: root <root@localhost.(none)>
+Date:   Thu Sep 10 21:19:24 2015 +0000
+
+    made deployment related changes
+
+commit b2f88d7588f58d6907245d144c03823c8657b246
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Thu Sep 3 17:05:46 2015 -0600
+
+    added reqs.txt
+
+commit 3e1342871f39c4b17d7aa2c7115a03c4ef986dd7
+Merge: 9258e05 4926851
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Thu Sep 3 16:43:34 2015 -0600
+
+    Merge branch 'dev'
+
+commit 49268510fdb945384f193434721802af81a67047
+Merge: 1e61f95 5efd5c6
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Wed Sep 2 21:29:21 2015 -0600
+
+    Merge branch 'feature/todo_lists' into dev
+
+commit 5efd5c66db157487d946520a90a8410c43dfeedf
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Wed Sep 2 21:29:06 2015 -0600
+
+    Todo lists can be added, cleaned up the nav bar a bit, still need to decide on navbar final look and add edit/delete functions for todo lists
+
+commit 20f16ad4bf03bf8115e08fc3491b651f7e8dd8df
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Sat Aug 29 00:30:47 2015 -0600
+
+    can save new todo lists and instantly display them in the location window, still need to finish completed-todo list item feature and need to have functions to edit and delete todo lists
+
+commit c1feb32af7733e9a77461d458f3b9cb7c1a3cef9
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Fri Aug 28 23:08:12 2015 -0600
+
+    adjusted the todo list model, added the description field, changed the 'item' field to be the 'title'
+
+commit 1e61f954594ebc65a2c0ce351b012779b870c832
+Merge: 517dfea 26221b5
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Fri Aug 28 22:22:46 2015 -0600
+
+    Merge branch 'feature/todo_lists' into dev
+
+commit 26221b5ee5c7f2e5913ea89b64620ccbca8695ab
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Fri Aug 28 22:22:12 2015 -0600
+
+    Can view todo lists when viewing their corresponding locations
+
+commit 517dfea14caaf7c68aaf0634b1cd8c18f2ff093a
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Thu Aug 27 21:00:46 2015 -0600
+
+    Location detail page works, still need to incorporate todo lists
+
+commit c541d807857af378b4323ab51d4f89564c816c70
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Fri Aug 21 15:06:40 2015 -0600
+
+    adding location detail features, not completed
+
+commit 9258e0573786d27fa31df381f559eb45b8326a7f
+Author: Jonathon Carlson <jon@jc2dev.com>
+Date:   Fri Aug 21 14:49:26 2015 -0600
+
+    initial commit

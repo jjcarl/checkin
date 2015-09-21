@@ -22,3 +22,25 @@
 [Thu Sep 10 01:25:34 2015] [error] [client 66.249.67.34] File does not exist: /sites/projects/checkin/frontend/app/m
 [Thu Sep 10 17:46:53 2015] [error] [client 216.21.163.5] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
 [Thu Sep 10 17:50:00 2015] [error] [client 104.238.194.236] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Thu Sep 10 23:13:50 2015] [error] [client 216.21.163.5] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Fri Sep 11 02:16:08 2015] [error] [client 216.21.163.17] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Fri Sep 11 02:58:04 2015] [error] [client 174.52.134.8] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Fri Sep 11 03:08:15 2015] [error] [client 66.249.64.169] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Fri Sep 11 10:57:31 2015] [error] [client 69.58.178.57] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Sat Sep 12 12:24:12 2015] [error] [client 66.249.69.31] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Sat Sep 12 12:24:12 2015] [error] [client 66.249.69.23] File does not exist: /sites/projects/checkin/frontend/app/m
+[Sat Sep 12 19:56:53 2015] [error] [client 66.249.64.169] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Sun Sep 13 12:16:04 2015] [error] [client 66.249.64.174] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Sun Sep 13 12:16:04 2015] [error] [client 66.249.64.174] File does not exist: /sites/projects/checkin/frontend/app/mobile
+[Mon Sep 14 11:17:54 2015] [error] [client 66.249.64.130] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Mon Sep 14 21:42:54 2015] [error] [client 216.21.163.5] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Tue Sep 15 19:56:54 2015] [error] [client 66.249.64.174] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Tue Sep 15 23:03:02 2015] [error] [client 216.21.163.5] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Wed Sep 16 23:02:06 2015] [error] [client 216.21.163.5] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Thu Sep 17 05:26:10 2015] [error] [client 174.52.134.8] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Thu Sep 17 15:52:56 2015] [error] [client 66.249.65.11] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Fri Sep 18 18:17:44 2015] [error] [client 216.21.163.5] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Fri Sep 18 18:20:38 2015] [error] [client 166.137.240.15] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Fri Sep 18 19:10:40 2015] [error] [client 216.21.163.5] File does not exist: /sites/projects/checkin/frontend/app/favicon.ico, referer: http://checkin.jc2dev.com/
+[Fri Sep 18 19:56:54 2015] [error] [client 66.249.79.20] File does not exist: /sites/projects/checkin/frontend/app/robots.txt
+[Mon Sep 21 19:56:55 2015] [error] [client 66.249.67.34] File does not exist: /sites/projects/checkin/frontend/app/robots.txt

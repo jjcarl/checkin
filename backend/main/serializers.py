@@ -13,6 +13,14 @@ class TodoSerializer(serializers.ModelSerializer):
         read_only_fields = ('id',)
 
 
+class CheckinSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Checkin
+        fields = (
+            'start_time', 'end_time', 'user', 'location', 'id')
+
+
 class LocationSerializer(serializers.ModelSerializer):
     todos = TodoSerializer(many=True, required=False)
 
@@ -25,13 +33,6 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
 class Base64ImageField(serializers.ImageField):
-    """
-    A Django REST framework field for handling image-uploads through raw post data.
-    It uses base64 for encoding and decoding the contents of the file.
-    Heavily based on
-    https://github.com/tomchristie/django-rest-framework/pull/1268
-    Updated for Django REST framework 3.
-    """
 
     def to_internal_value(self, data):
         from django.core.files.base import ContentFile
@@ -53,7 +54,7 @@ class Base64ImageField(serializers.ImageField):
                 self.fail('invalid_image')
 
             # Generate file name:
-            file_name = str(uuid.uuid4())[:12]  # 12 characters are more than enough.
+            file_name = str(uuid.uuid4())[:12]  # 12 characters limit.
             # Get the file name extension:
             file_extension = self.get_file_extension(file_name, decoded_file)
 
@@ -100,14 +101,6 @@ class InfoSerializer(serializers.ModelSerializer):
         model = Info
         fields = (
             'user', 'phone_number', 'profile_pic', 'family',)
-
-
-class CheckinSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Checkin
-        fields = (
-            'start_time', 'end_time', 'user', 'location',)
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -33,7 +33,6 @@ angular.module('checkin.viewLocation', ['ngRoute'])
             }
         }
     })
-    
 }])
 .directive('locmap', function(){
     return {

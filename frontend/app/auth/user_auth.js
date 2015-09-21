@@ -30,6 +30,13 @@ angular.module('checkin.userAuth', ['ngRoute'])
         $scope.alerts.splice(index, 1)
     };
 
+    $scope.fblogin = function(){
+        var token = sessionStorage.getItem('fbtoken');
+        User.facebookLogin(token);
+        $location.path('/home');
+        // $window.location.reload();
+    }
+
 }])
 .controller('CreateUserController', ['$scope', '$location', 'User', function($scope, $location, User){
     $scope.user_info = {};
