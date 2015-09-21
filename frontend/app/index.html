@@ -67,9 +67,11 @@
   <![endif]-->
   <div id="fb-root"></div>
   <div ng-view></div>
-  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-  </fb:login-button>
-  <div id="status">
+  <!--<div>
+    <fb:login-button scope="public_profile,email" onlogin="FB.getLoginStatus()">
+    </fb:login-button>
+    <div id="status"></div>
+  </div>-->
   </div>
   <!--<fb:login-button show-faces="true" max-rows="1" size="large"></fb:login-button>-->
   <!-- In production use:

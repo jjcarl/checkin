@@ -21,10 +21,8 @@ angular.module('checkin', [
   $routeProvider.otherwise({redirectTo: '/home'});
 }])
 
-.run(['$rootScope', '$window', function($rootScope, $window) {
-
-  $rootScope.user = {};
-
+.run(['$rootScope', '$window', 'User', function($rootScope, $window, User) {
+  
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -34,7 +32,13 @@ angular.module('checkin', [
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      var token = response.authResponse.accessToken
+      sessionStorage.setItem('fbtoken', token);
+      // if(token != null){
+      //   User.facebookLogin(token);
+      // }
+      // testAPI();
+      
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -48,11 +52,11 @@ angular.module('checkin', [
   }
 
   // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
+  // Button.
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
+      User.facebookLogin();
     });
   }
 
@@ -65,7 +69,7 @@ angular.module('checkin', [
        of the javascript SDK, by addressing issues 
        with cross-domain communication in certain browsers. 
       */
-      channelUrl: 'app/channel.html', 
+      // channelUrl: 'app/channel.html', 
       /* 
        Set if you want to check the authentication status
        at the start up of the app 
@@ -77,15 +81,23 @@ angular.module('checkin', [
       */
       cookie: true, 
       /* Parse XFBML */
-      xfbml: true,
-      // Facebook says to use version 2.2
-      version    : 'v2.2' 
+      xfbml: true
     });
 
     FB.getLoginStatus(function(response){
       statusChangeCallback(response);
     });
   };
+
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+  
 
   (function(d){
     // load the Facebook javascript SDK asynchronously
@@ -124,6 +136,17 @@ angular.module('checkin', [
         $window.location.reload();
       })
     }
+  }
+  if (sessionStorage.getItem('facebook_auth')){
+    var token = sessionStorage.getItem('facebook_auth');
+    $http.defaults.headers.common.Authorization = ' Bearer facebook ' + token;
+    User.getInfo().then(function(){
+      $scope.user = User.info;
+      $location.path('/home');
+    }, function(response){
+      sessionStorage.removeItem('facebook_auth');
+      $window.location.reload();
+    })
   }
   $scope.logout = function(){
     User.logout();

@@ -148,9 +148,15 @@ AUTHENTICATION_BACKENDS = (
 # Email is not sent by default, to get it, request the email permission eg.:
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'ru_RU',
+  'fields': 'id, name, email, age_range'
+}
+
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
     # 'checkin.jc2dev.com',
     '127.0.0.1:8001',
+    'checkin.com:8001',
 )
