@@ -5,6 +5,7 @@ django-braces==1.8.1
 django-cors-headers==1.1.0
 django-filter==0.11.0
 django-oauth-toolkit==0.9.0
+django-rest-framework-social-oauth2==1.0.2
 djangorestframework==3.2.2
 ipdb==0.8.1
 ipython==4.0.0
@@ -16,6 +17,11 @@ pexpect==3.3
 pickleshare==0.5
 Pillow==2.9.0
 psycopg2==2.6.1
+PyJWT==1.4.0
+python-openid==2.2.5
+python-social-auth==0.2.12
+requests==2.7.0
+requests-oauthlib==0.5.0
 simplegeneric==0.8.1
 six==1.9.0
 traitlets==4.0.0
