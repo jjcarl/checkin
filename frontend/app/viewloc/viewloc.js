@@ -10,15 +10,8 @@ angular.module('checkin.viewLocation', ['ngRoute'])
 }])
 .controller('ViewLocationController', ['$scope', '$http', 'User', function($scope, $http, User){
     $scope.user = User.info
+    // Using the User.family service to store these locations
     $scope.locations = User.family.locations
-    // Using the user.family in the User service instead of this code
-    // Keeping the below code here for now, will delete after all services are good
-    // $scope.family = $scope.user.info.family
-    // $http.get(backendUrl + '/families/' + $scope.family + '/').then(function(response){
-    //     $scope.locations = response.data.locations
-    // }), function(response){
-    //     $scope.error = response.status
-    // }
     $scope.$watch('locations', function(){
         if ($scope.locations){
             $scope.points = []

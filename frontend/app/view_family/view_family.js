@@ -11,20 +11,18 @@ angular.module('checkin.viewFamily', ['ngRoute'])
 .controller('ViewFamilyController', ['$scope', '$http', 'User', function($scope, $http, User){
     $scope.user = User.info
     $scope.available = []
-    $http.get(backendUrl + '/families/' + $scope.user.info.family + '/').then(function(response){
-        $scope.members = []
-        $scope.family = response.data
-        for (var i = 0; i < $scope.family.users.length; i++) {
-            $http.get(backendUrl + '/users/' + $scope.family.users[i].user + '/').then(function(data){
-                $scope.members = $scope.members.concat([data.data])
-            }), function(data){
-                $scope.errors = data.data
-            }
-        };
-        
-    }), function(response){
-        $scope.error = response.status
-    }
+    $scope.members = []
+
+    // Using the new User.family service
+    $scope.family = User.family
+    for (var i = 0; i < $scope.family.users.length; i++) {
+        $http.get(backendUrl + '/users/' + $scope.family.users[i].user + '/').then(function(data){
+            $scope.members = $scope.members.concat([data.data])
+        }), function(data){
+            $scope.errors = data.data
+        }
+    };
+
     // Get a list of all users with no assigned family
     $http.get(backendUrl + '/users/').then(function(data){
         var list = data.data

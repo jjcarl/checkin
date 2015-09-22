@@ -25,8 +25,11 @@ angular.module('checkin.userAuth')
         return $http.get(backendUrl + '/get-user-info/').then(function(data){
             user.info = data.data;
             $rootScope.$broadcast(user.update_broadcast);
-            return user.getFamily();
-
+            if (user.info.info != null){
+                if (user.info.info.family != null){
+                    return user.getFamily();
+                }
+            }
         })
     };
     user.logout = function(){
@@ -37,6 +40,7 @@ angular.module('checkin.userAuth')
         $window.location.reload();
     };
 
+    // Facebook authentication service
     user.facebookLogin = function(token){
         sessionStorage.setItem('facebook_auth', token);
         FB.login(function(response){
@@ -59,11 +63,9 @@ angular.module('checkin.userAuth')
     user.getFamily = function(){
         $http.get(backendUrl + '/families/' + user.info.info.family + '/').then(function(data){
             user.family = data.data
+            return user.family
         })
     }
-
-    // Consider adding check-ins to the User service
-
 
     user.token_name = 'auth-token';
     user.update_broadcast = 'user-updated';
