@@ -12,14 +12,13 @@ angular.module('checkin.userAuth', ['ngRoute'])
         controller: 'CreateUserController'
     })
 }])
-.controller('LoginController', ['$scope', '$location', 'User', '$window', function($scope, $location, User, $window){
+.controller('LoginController', ['$scope', '$location', 'User', function($scope, $location, User){
     $scope.credentials = {};
     
     $scope.login = function(){
         User.login($scope.credentials).then(function(){
             $scope.credentials = {};
             $location.path('/home');
-            // $window.location.reload();
 
         }, function(data){
             $scope.alerts.push({msg: data.data.non_field_errors[0]});
@@ -34,7 +33,6 @@ angular.module('checkin.userAuth', ['ngRoute'])
         var token = sessionStorage.getItem('fbtoken');
         User.facebookLogin(token);
         $location.path('/home');
-        // $window.location.reload();
     }
 
 }])

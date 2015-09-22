@@ -41,7 +41,8 @@ router.register(r'groups', GroupViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
-    # basic auth
+
+    # Basic (backend) auth
     url(r'^login/$', 'main.user_auth.login', name='login'),
     url(r'^logout/$', 'main.user_auth.logout', name='logout'),
 
@@ -66,6 +67,8 @@ urlpatterns = [
         auth_views.password_reset_complete,
         {"template_name": "password_reset/password_reset_complete.html"},
         name="password_reset_complete"),
+
+    # API Token Auth URLs
     url(r'^api-auth/', include(
         'rest_framework.urls', namespace='rest_framework')),
     url(r'^api-token-auth/', views.obtain_auth_token),
