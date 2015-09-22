@@ -164,4 +164,3 @@ CORS_ORIGIN_WHITELIST = (
     'checkin.jc2dev.com',
     '127.0.0.1:8001',
 )
-
