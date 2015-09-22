@@ -243,3 +243,157 @@
 [Mon Sep 21 22:10:27 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
 [Mon Sep 21 22:10:27 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
 [Mon Sep 21 22:10:27 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5] mod_wsgi (pid=22887): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5] mod_wsgi (pid=22887): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 85, in populate
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]     app_config = AppConfig.create(entry)
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/config.py", line 112, in create
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]     mod = import_module(mod_path)
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5]     __import__(name)
+[Mon Sep 21 22:12:09 2015] [error] [client 216.21.163.5] ImportError: No module named social.apps.django_app
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5] mod_wsgi (pid=22887): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5] mod_wsgi (pid=22887): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
+[Mon Sep 21 22:12:18 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5] mod_wsgi (pid=22887): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5] mod_wsgi (pid=22887): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
+[Mon Sep 21 22:16:03 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23174): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23174): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 85, in populate
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]     app_config = AppConfig.create(entry)
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/config.py", line 112, in create
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]     mod = import_module(mod_path)
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5]     __import__(name)
+[Mon Sep 21 22:17:19 2015] [error] [client 216.21.163.5] ImportError: No module named social.apps.django_app
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23174): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23174): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
+[Mon Sep 21 22:22:57 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23419): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23419): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 85, in populate
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]     app_config = AppConfig.create(entry)
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/config.py", line 112, in create
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]     mod = import_module(mod_path)
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5]     __import__(name)
+[Mon Sep 21 22:26:38 2015] [error] [client 216.21.163.5] ImportError: No module named social.apps.django_app
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23419): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23419): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
+[Mon Sep 21 22:26:39 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 85, in populate
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     app_config = AppConfig.create(entry)
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/config.py", line 112, in create
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     mod = import_module(mod_path)
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     __import__(name)
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] ImportError: No module named social.apps.django_app
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
+[Mon Sep 21 22:27:00 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
+[Mon Sep 21 22:27:04 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Target WSGI script '/sites/projects/checkin/backend/backend/wsgi.py' cannot be loaded as Python module.
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5] mod_wsgi (pid=23681): Exception occurred processing WSGI script '/sites/projects/checkin/backend/backend/wsgi.py'.
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5] Traceback (most recent call last):
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]   File "/sites/projects/checkin/backend/backend/wsgi.py", line 16, in <module>
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]     application = get_wsgi_application()
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/core/wsgi.py", line 14, in get_wsgi_application
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]     django.setup()
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/__init__.py", line 18, in setup
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]     apps.populate(settings.INSTALLED_APPS)
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]   File "/sites/virtualenvs/checkin/lib/python2.7/site-packages/django/apps/registry.py", line 78, in populate
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5]     raise RuntimeError("populate() isn't reentrant")
+[Mon Sep 21 22:27:05 2015] [error] [client 216.21.163.5] RuntimeError: populate() isn't reentrant
+[Mon Sep 21 22:29:11 2015] [error] /sites/virtualenvs/checkin/lib/python2.7/site-packages/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
+[Mon Sep 21 22:29:11 2015] [error]   InsecurePlatformWarning
+[Mon Sep 21 22:29:11 2015] [error] 
+[Mon Sep 21 22:29:18 2015] [error] /sites/virtualenvs/checkin/lib/python2.7/site-packages/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
+[Mon Sep 21 22:29:18 2015] [error]   InsecurePlatformWarning
+[Mon Sep 21 22:29:18 2015] [error] 
