@@ -12,11 +12,6 @@ angular.module('checkin.userInfo', ['ngRoute'])
     $scope.user = User.info
     $scope.new_info = {}
     $scope.user_info = {}
-    $http.get(backendUrl + '/families/').then(function(response){
-        $scope.families = response.data
-    }, function(response){
-        $scope.errors = response.status
-    })
     if ($scope.user.info != null){
         if ($scope.user.info.family != null) {
             $http.get(backendUrl + '/families/' + $scope.user.info.family + '/').then(function(response){
@@ -33,8 +28,8 @@ angular.module('checkin.userInfo', ['ngRoute'])
             $scope.new_info.user = $scope.user.id
             $http.post(backendUrl + '/info/', $scope.new_info).then(function(response){
                 $scope.success = response.data
+                $scope.user.info = $scope.new_info
                 $window.location.reload();
-                $location.path('/user-info')
             }, function(response){
                 $scope.errors = response.status
             })
@@ -46,7 +41,7 @@ angular.module('checkin.userInfo', ['ngRoute'])
         $scope.user_info.user = $scope.user.id
         $http.put(backendUrl + '/info/' + $scope.user.id + '/', $scope.user_info).then(function(response){
             $scope.success = response.data
-            $window.location.reload();
+            // $window.location.reload();
             $location.path('/user-info')
         }), function(response){
             $scope.errors = response.status
