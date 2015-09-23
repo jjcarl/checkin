@@ -43,3 +43,17 @@ nav {
 .login-icon {
   width: 2em;
 }
+
+.user-update-form {
+  display: none;
+}
+
+.edit-todo-form {
+  display: none;
+}
+.todo-list-item {
+  border-bottom: solid 1px #eee;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}

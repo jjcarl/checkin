@@ -104,13 +104,13 @@ class InfoSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    info = InfoSerializer(required=False)
 
     class Meta:
         model = User
         fields = (
             'id', 'username', 'email', 'first_name',
             'last_name', 'info', 'locations', 'checkins', 'password')
+        depth = 1
         write_only_fields = ('password',)
         read_only_fields = ('id', 'locations', 'checkins')
 
@@ -124,8 +124,6 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
     def update(self, instance, validated_data):
-        info_data = validated_data.pop('info')
-        info = instance.info
 
         instance.username = validated_data.get('username', instance.username)
         instance.email = validated_data.get('email', instance.email)
@@ -135,11 +133,6 @@ class UserSerializer(serializers.ModelSerializer):
             'last_name', instance.last_name)
         instance.password = validated_data.get('password', instance.password)
         instance.save()
-
-        info.phone_number = info_data.get('phone_number', info.phone_number)
-        info.profile_pic = info_data.get('profile_pic', info.profile_pic)
-        info.family = info_data.get('family', info.family)
-        info.save()
 
         return instance
 

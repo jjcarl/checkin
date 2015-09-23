@@ -4,17 +4,18 @@
             <div>
                 <h2>Family Member information</h2>
                 <div class="col-sm-offset-1">
+                {{member}}
                     <p>First Name: {{member.first_name}}</p>
                     <p>Last Name: {{member.last_name}}</p>
                     <p>Username: {{member.username}}</p>
                     <p ng-show="member.info.phone_number">Phone Number: {{member.info.phone_number}}</p>
                     <p ng-show="member.info.email">Email Address: {{member.info.email}}</p>
-                    <img ng-show="member.info.profile_pic" ng-src="{{member.info.profile_pic.url}}" alt="{{member.username}}'s profile picture">
+                    <img ng-show="member.info.profile_pic" ng-src="{{member.info.profile_pic}}" alt="{{member.username}}'s profile picture">
                 </div>
             </div>
-            <div ng-if="checkins.length > 0">
+            <div ng-if="member.checkins.length > 0">
                 <h3>Family Member Check-in's</h3>
-                <div ng-repeat="checkin in checkins" class="col-sm-offset-1">
+                <div ng-repeat="checkin in member.checkins" class="col-sm-offset-1">
                     <p>Check-in: {{checkin.start_time}}</p>
                     <p>Check-out: {{checkin.end_time}}</p>
                     <p>Check-in location: {{checkin.location.title}}</p>

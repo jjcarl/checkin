@@ -21,8 +21,8 @@
                     <input type="text" ng-model="todo.title" class="form-control" placeholder="eg. Check on the availability of...., etc." required>
                 </div>
                 <div class="form-group">
-                    <label>To-do Item Description (optional)</label>
-                    <input type="text" ng-model="todo.description" class="form-control" placeholder="eg. Make sure to also ask about...., etc.">
+                    <label>To-do Item Description</label>
+                    <input type="text" ng-model="todo.description" class="form-control" placeholder="eg. Make sure to also ask about...., etc." required>
                 </div>
                 <div class="form-group">
                     <label>To-do Item Due Date</label>
@@ -41,13 +41,39 @@
             <h4>To-do lists</h4>
         </div>
         <div class="col-sm-offset-3 col-sm-6" ng-repeat="list in lists track by $index" data-id="{{list.id}}">
-            <p>{{list.title}}</p>
-            <p ng-if="list.description">{{list.description}}</p>
-            <p>Due on: {{list.due_date}} </p>
-            <!-- might move this into a different view
-            <p><b>Completed: </b><span class="completed-checker"><input type="checkbox" ng-model="completed" class="completed-checkbox" ng-change="change()" ></span></p> -->
-            <p ng-if="list.completed"><b>This item was completed</b></p>
-            <hr>
+            <div class="row todo-list-item">
+                <div class="col-sm-6">
+                    <p>{{list.title}}</p>
+                    <p ng-if="list.description">{{list.description}}</p>
+                    <p>Due on: {{list.due_date}} </p>
+                    <button class="btn btn-default" data-id="{{list.id}}" ng-click="complete(list)" ng-hide="list.completed">Complete</button>
+                    <p ng-show="list.completed"><b>This item was completed</b></p>
+                    <button class="btn btn-default" data-id="{{list.id}}" ng-click="incomplete(list)" ng-show="list.completed">Mark as Incomplete</button>
+                    <br>
+                    <button class="btn btn-default" ng-click="showform()">Edit to-do list</button>
+                    <br>
+                </div>
+                <div class="col-sm-6">
+                    <form method="put" class="edit-todo-form" visible="false">
+                        <div class="form-group">
+                            <label>To-do Item Title</label>
+                            <input type="text" ng-model="list.title" class="form-control" placeholder="eg. Check on the availability of...., etc." required>
+                        </div>
+                        <div class="form-group">
+                            <label>To-do Item Description</label>
+                            <input type="text" ng-model="list.description" class="form-control" placeholder="eg. Make sure to also ask about...., etc." required>
+                        </div>
+                        <div class="form-group">
+                            <label>To-do Item Due Date</label>
+                            <input type="datetime" ng-model="list.due_date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default" ng-click="update(list)">Save</button>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
         </div>
     </div>
 </div>
