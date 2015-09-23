@@ -123,5 +123,5 @@ angular.module('checkin', [
 
 }])
 
-// var backendUrl = 'http://127.0.0.1:8000';
+//var backendUrl = 'http://127.0.0.1:8000';
 var backendUrl = 'http://api.jc2dev.com'
