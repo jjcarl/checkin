@@ -41,8 +41,7 @@ angular.module('checkin.userInfo', ['ngRoute'])
         $scope.user_info.user = $scope.user.id
         $http.put(backendUrl + '/info/' + $scope.user.id + '/', $scope.user_info).then(function(response){
             $scope.success = response.data
-            // $window.location.reload();
-            $location.path('/user-info')
+            $scope.user.info.phone_number = $scope.user_info.phone_number
         }), function(response){
             $scope.errors = response.status
         }
@@ -59,10 +58,9 @@ angular.module('checkin.userInfo', ['ngRoute'])
 
         $http.put(backendUrl + '/info/' + $scope.user.id + '/', $scope.user_info).then(function(response){
             $scope.success = response.data
-            $window.location.reload();
-            $location.path('/user-info')
-        }), function(response){
-            $scope.errors = response.status
-        }
+            $scope.user.info.profile_pic = $scope.user_info.profile_pic
+            }, function(response){
+                $scope.errors = response.status
+        })
     }
 }])

@@ -8,9 +8,9 @@
                 <p>Last Name: {{user.last_name}}</p>
             </div>
             <div>
-                <p>Phone Number: {{user.info.phone_number}}</p>
+                <p ng-show="user.info.phone_number">Phone Number: {{user.info.phone_number}}</p>
                 <p ng-show="family">Family: {{family.name}}</p>
-                <img ng-src="{{user.info.profile_pic}}" alt="" ng-show="user.info.profile_pic" id="profile-pic">
+                <img ng-src="{{user.info.profile_pic}}" alt="User's profile picture" ng-show="user.info.profile_pic" id="profile-pic">
                 <p ng-hide="family">Please join a family below</p>
                 <br>
                 <div ng-hide="user.info.family">
@@ -20,7 +20,7 @@
                             <label>Family:</label>
                             <input type="text" ng-model="newfam.name" placeholder="Enter your family name here">
                             <p class="help-block">(This is case sensitive)</p>
-                            <p class="help-block">If you would like to join a family, have a user who is in that family add you.</p>
+                            <p class="help-block">If you would like to join an existing family, please have a user who is in that family add you.</p>
                         </div>
                         <button ng-click="submit()">Create a family</button>
                     </form>

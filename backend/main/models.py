@@ -19,6 +19,7 @@ class Info(models.Model):
         upload_to='profile_pic', null=True, blank=True)
     family = models.ForeignKey(
         'Family', related_name='users', null=True, blank=True)
+    is_parent = models.BooleanField(default=False)
 
     def __unicode__(self):
         return '%s' % self.user
@@ -72,13 +73,14 @@ class Checkin(models.Model):
 
 class Todo(models.Model):
     title = models.TextField()
-    description = models.TextField(null=True, blank=True)
+    description = models.TextField()
     completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(null=True, blank=True)
     location = models.ForeignKey(
         'Location', null=True, blank=True, related_name='todos')
     user = models.ForeignKey(User, null=True, blank=True, related_name='todos')
+    family = models.ForeignKey('Family', related_name='todos', null=True, blank=True)
 
     def __unicode__(self):
         return self.item
