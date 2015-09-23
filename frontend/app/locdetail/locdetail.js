@@ -8,7 +8,8 @@ angular.module('checkin.locDetail', ['ngRoute', 'ngResource'])
         controller: 'LocationDetailController'
     })
 }])
-.controller('LocationDetailController', ['$scope', '$routeParams', 'Location', '$http', '$location', function($scope, $routeParams, Location, $http, $location, $attrs, $observe){
+.controller('LocationDetailController', ['$scope', '$routeParams', 'Location', '$http', '$location', 'User', function($scope, $routeParams, Location, $http, $location, User){
+
     Location.get({locationId: $routeParams.locationId}, function(response){
         $scope.location = response
         $scope.title = $scope.location.title
@@ -19,8 +20,9 @@ angular.module('checkin.locDetail', ['ngRoute', 'ngResource'])
     })
     var todo = $scope.todo
     $scope.submit = function(){
-        $scope.todo.user = 1 // TODO --- Assign this to the authenticated user
+        $scope.todo.user = User.info.id
         $scope.todo.location = $scope.location.id
+        $scope.todo.family = User.info.info.family
         $http.post(backendUrl + '/todo/', $scope.todo)
         .then(function(response){
             $scope.success = response.status
@@ -35,26 +37,39 @@ angular.module('checkin.locDetail', ['ngRoute', 'ngResource'])
     $scope.reset = function(){
         $scope.todo = null
     }
-    // TODO - Get this function working. This might be better in a different view....
-    // $scope.change = function(){
-    //     var id = $(this).attr('data-id')
-    //     console.log(id)
-    //     $http.post(backendUrl + '/todo/' + id, $scope.completed)
-    //     .then(function(response){
-    //         $scope.changed = response.status
-    //         if ($scope.completed === false){
-    //             $scope.message = "Your item has been marked completed"
-    //         } else{
-    //             $scope.message = "Your item is not completed"
-    //         }
-    //     }),
-    //     function(response){
-    //         $scope.errors = response.status
-    //     }
-    // }
-    // $scope.edit = function(){
-        // TODO - either write this function here or put it in a separate view
-    // }
+    $scope.complete = function(list){
+        list.completed = true
+        $http.put(backendUrl + '/todo/' + list.id + '/', list).then(function(response){
+        }, function(response){
+            $scope.errors = response.status
+        })
+    }
+    $scope.incomplete = function(list){
+        list.completed = false
+        $http.put(backendUrl + '/todo/' + list.id + '/', list).then(function(response){
+        }, function(response){
+            $scope.errors = response.status
+        })
+    }
+    $scope.showform = function(){
+        if($('.edit-todo-form').attr('visible') === 'true'){
+            $('.edit-todo-form').hide();
+            $('.edit-todo-form').attr('visible', 'false');
+        } else {
+            $('.edit-todo-form').show();
+            $('.edit-todo-form').attr('visible', 'true');
+        }
+    }
+    $scope.update = function(list){
+        $http.put(backendUrl + '/todo/' + list.id + '/', list).then(function(data){
+            $scope.success = data.status
+            $('.edit-todo-form').hide();
+            $('.edit-todo-form').attr('visible', 'false');
+        }, function(data){
+            $scope.errors = data.status
+        })
+    }
+   
 }])
 .directive('locdetail', function(){
     return {

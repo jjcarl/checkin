@@ -5,6 +5,7 @@ angular.module('checkin.userAuth')
 .service('User', ['$http', '$rootScope', '$location', '$window', function($http, $rootScope, $location, $window){
     var user = {};
     user.info = {};
+    user.family = {};
 
     user.registration = function(user_info){
         return $http.post(backendUrl + '/register-user/', user_info)
@@ -24,6 +25,11 @@ angular.module('checkin.userAuth')
         return $http.get(backendUrl + '/get-user-info/').then(function(data){
             user.info = data.data;
             $rootScope.$broadcast(user.update_broadcast);
+            if (user.info.info != null){
+                if (user.info.info.family != null){
+                    return user.getFamily();
+                }
+            }
         })
     };
     user.logout = function(){
@@ -34,6 +40,7 @@ angular.module('checkin.userAuth')
         $window.location.reload();
     };
 
+    // Facebook authentication service
     user.facebookLogin = function(token){
         sessionStorage.setItem('facebook_auth', token);
         FB.login(function(response){
@@ -53,7 +60,12 @@ angular.module('checkin.userAuth')
         }, {scope: 'public_profile,email'})
     }
 
-    // Consider adding family, locations or check-ins to the User service
+    user.getFamily = function(){
+        $http.get(backendUrl + '/families/' + user.info.info.family + '/').then(function(data){
+            user.family = data.data
+            return user.family
+        })
+    }
 
     user.token_name = 'auth-token';
     user.update_broadcast = 'user-updated';
