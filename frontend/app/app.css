@@ -43,3 +43,7 @@ nav {
 .login-icon {
   width: 2em;
 }
+
+.user-update-form {
+  display: none;
+}
