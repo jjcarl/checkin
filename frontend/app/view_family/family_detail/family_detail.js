@@ -9,22 +9,21 @@ angular.module('checkin.familyDetail', ['ngRoute'])
     })
 }])
 
-.controller('FamilyDetailController', ['$routeParams', '$scope', '$http', function($routeParams, $scope, $http){
+.controller('FamilyDetailController', ['$routeParams', '$scope', '$http', 'User', function($routeParams, $scope, $http, User){
     var memberId = $routeParams.memberId
     $scope.checkins = []
+    var locations = User.family.locations
     $http.get(backendUrl + '/users/' + memberId + '/').then(function(data){
         $scope.member = data.data
-        console.log($scope.member)
-        for (var i=0; i < $scope.member.checkins.length; i++) {
-            $http.get(backendUrl + '/checkins/' + $scope.member.checkins[i] + '/').then(function(response){
-                $scope.checkins = $scope.checkins.concat([response.data])
-                console.log($scope.checkins)
-            }, function(response){
-                $scope.errors = response.data
-            })
+        if($scope.member.checkins.length > 0){
+            for (var i=0; i < $scope.member.checkins.length; i++) {
+                for (var i = 0; i < locations.length; i++) {
+                    if ($scope.member.checkins[i].location === locations[i].id) {
+                        $scope.member.checkins[i].location = locations[i]
+                    };
+                };
+            }
         }
-
-        
     }, function(data){
         $scope.errors = data.status
     })

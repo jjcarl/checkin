@@ -22,6 +22,7 @@ angular.module('checkin.map', ['ngRoute'])
         .then(function(response){
             $scope.success = response.status;
             $scope.posted = "Your point has been saved";
+            User.family.locations = User.family.locations.concat([$scope.location]);
             $location.path('/viewloc');
             
 
