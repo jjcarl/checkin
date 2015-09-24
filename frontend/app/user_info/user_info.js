@@ -81,6 +81,8 @@ angular.module('checkin.userInfo', ['ngRoute'])
             $http.put(backendUrl + '/info/' + $scope.user.id + '/', $scope.partial).then(function(data){
                 $scope.text = 'Your informaiton has been updated';
                 $scope.success = response.status
+                $('.user-update-form').hide();
+                $('.user-update-form').attr('visible', 'false');
             }, function(data){
                 $scope.errors = response.status
             })
