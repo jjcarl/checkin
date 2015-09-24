@@ -6,22 +6,28 @@
             </div>
             <div>
                 <p>Current family members:</p>
-                <div class="col-sm-offset-1">
+                <div class="col-sm-offset-1 col-sm-10">
                     <div ng-repeat="member in members | orderBy : 'first_name'">
                         <p>Username: <a href="#/family/{{member.id}}/">{{member.username}}</a>, First Name: {{member.first_name}} <br>
                         <p class="col-sm-offset-1" ng-show="member.checkins">{{member.username}} has {{member.checkins.length}} Check-ins.</p>
                     </div>
+                    <br>
                     <div>
                         <form method="post">
-                            <select ng-model="newfam" name="newfamselect" ng-options="person.username for person in available">
-                            </select>
-                            <button ng-click="add()">Add to the family</button>
+                            <div class="col-sm-4">
+                                <select ng-model="newfam" name="newfamselect" ng-options="person.username for person in available | orderBy: 'username'" class="form-control">
+                                </select>
+                            </div>
+                            <button class="btn btn-default" ng-click="add()">Add to the family</button>
                         </form>
                     </div>
+                    <br>
                 </div>
-                <p>This family currently has {{family.locations.length}} locations:</p>
-                <div class="col-sm-offset-1">
-                    <p ng-repeat="location in family.locations">{{location.title}}: {{location.description}}</p>
+                <div class="col-sm-12">
+                    <p>This family currently has {{family.locations.length}} locations:</p>
+                    <div class="col-sm-offset-1">
+                        <p ng-repeat="location in family.locations | orderBy: 'title'">{{location.title}}: {{location.description}}</p>
+                    </div>
                 </div>
             </div>
 
