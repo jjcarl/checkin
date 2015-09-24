@@ -44,7 +44,7 @@ angular.module('checkin.userAuth', ['ngRoute'])
             $scope.user_info = {};
             $location.path('/home')
         }, function(data){
-            $scope.alerts.push({msg: data.data.non_field_errors[0]})
+            $scope.alerts.push({msg: data.data})
         })
     };
     $scope.alerts = [];
