@@ -27,7 +27,8 @@ ALLOWED_HOSTS = [
     '.api.jc2dev.com',
     '.api.jc2dev.com.',
     'checkin.jc2dev.com',
-    '.checkin.jc2dev.com.'
+    '.checkin.jc2dev.com.',
+    '*'
 ]
 
 
@@ -158,9 +159,9 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
   'fields': 'id, name, email, age_range'
 }
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = (
-    'checkin.jc2dev.com',
-    '127.0.0.1:8001',
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'checkin.jc2dev.com',
+#     '127.0.0.1:8001',
+# )
