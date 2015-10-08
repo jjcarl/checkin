@@ -86,7 +86,7 @@ angular.module('checkin.locDetail', ['ngRoute', 'ngResource'])
                 var mapInfo = {
                     zoom: 12,
                     center: new google.maps.LatLng(scope.marker.lat, scope.marker.lng),
-                    mapTypeId: google.maps.MapTypeId.SATELLITE
+                    mapTypeId: google.maps.MapTypeId.HYBRID
                 };
 
                 markerMap = new google.maps.Map(element[0], mapInfo);

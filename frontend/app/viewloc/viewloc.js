@@ -44,7 +44,7 @@ angular.module('checkin.viewLocation', ['ngRoute'])
                 var mapInfo = {
                     zoom: 12,
                     center: new google.maps.LatLng(scope.points[0].lat, scope.points[0].lng),
-                    mapTypeId: google.maps.MapTypeId.SATELLITE
+                    mapTypeId: google.maps.MapTypeId.HYBRID
                 };
 
                 markerMap = new google.maps.Map(element[0], mapInfo);
