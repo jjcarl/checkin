@@ -16,7 +16,7 @@ angular.module('checkin.newLocationDirective', [])
                 });
                 var geocoder = new google.maps.Geocoder();
 
-                document.getElementById('submit').addEventListener('click', function() {
+                document.getElementById('geolocate').addEventListener('click', function() {
                     geocodeAddress(geocoder, map);
                 });
 
@@ -64,6 +64,8 @@ angular.module('checkin.newLocationDirective', [])
     }
 })
 
+// This is the old directive for just click based locations.
+// I'll leave this here for now in case I want to revert back to this later.
 // .directive('gmap', function(){
 //     return {
 //         restrict: 'E',

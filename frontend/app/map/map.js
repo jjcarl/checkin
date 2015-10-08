@@ -21,9 +21,8 @@ angular.module('checkin.map', ['ngRoute'])
         $http.post(backendUrl + '/locations/', $scope.location)
         .then(function(response){
             $scope.success = response.status;
-            $scope.posted = "Your point has been saved";
             User.getFamily();
-            $location.path('/viewloc');
+            $location.path('/home')
             
         }), function(response){
             $scope.errors = response.status
@@ -31,8 +30,5 @@ angular.module('checkin.map', ['ngRoute'])
     }
     $scope.reset = function(){
         $scope.location = null;
-    }
-    $scope.getlocation = function(){
-        $http.get()
     }
 }]);
