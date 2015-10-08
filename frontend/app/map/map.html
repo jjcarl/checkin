@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-offset-1 col-md-10">
             <h2>Create a new location</h2>
+            <h4>You can mark the location on the map by either seraching the address or by clicking on the map.</h4>
         </div>
     </div>
     <div class="row">
@@ -17,15 +18,23 @@
                 </div>
                 <div class="form-group">
                     <label>Location Radius (in yards/meters)</label>
-                    <input type="text" ng-model="location.radius" class="form-control" placeholder="The effective radius around the marker. e. 500" required>
+                    <input type="number" ng-model="location.radius" class="form-control" placeholder="The effective radius around the marker. For example '500'" required>
+                    <p class="help-block">Numbers only</p>
                 </div>
-                <div class="row">
-                    <gmap class="marker-map" marker="marker">
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" id="address" placeholder="350 State St, Salt Lake City, UT 84111" class="form-control">
+                    <input id="geolocate" type="button" value="Search" class="btn btn-default">
+                    <gmap class="marker-map" marker="marker" id="gmap">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-default" ng-click="submit()">Save</button>
                     <button class="btn btn-default" ng-click="reset()">Reset</button>
-                    <h3>{{errors}}</h3>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <h3>{{errors}}</h3>
+                    </div>
                 </div>
             </form>
         </div>
