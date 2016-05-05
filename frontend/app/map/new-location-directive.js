@@ -22,8 +22,8 @@ angular.module('checkin.newLocationDirective', [])
 
                 google.maps.event.addListener(map, 'click', function(event){
                     addMarker(event.latLng, map);
-                    console.log(event.latLng)
-                    scope.marker.push({lat: event.latLng.J, lng: event.latLng.M});
+                    console.log(event)
+                    scope.marker.push({lat: event.Qa.x, lng: event.Qa.y});
                     scope.$apply();
                 });
 
@@ -47,7 +47,7 @@ angular.module('checkin.newLocationDirective', [])
                     if (status === google.maps.GeocoderStatus.OK) {
                         resultsMap.setCenter(results[0].geometry.location);
                         var point = results[0].geometry.location
-                        scope.marker.push({lat: point.J, lng: point.M})
+                        scope.marker.push({lat: point.lat, lng: point.lng})
                         scope.$apply()
                         var marker = new google.maps.Marker({
                             map: resultsMap,
